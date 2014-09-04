@@ -1,0 +1,34 @@
+<script type='text/javascript'>
+$(function() {
+  Dashing.cycleDashboards({timeInSeconds: 15, stagger: true});
+});
+</script>
+<% content_for :title do %>Zabbix<% end %>
+<% settings.screens.each do |screen| %>
+  <div class="gridster">
+    <ul>
+      <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+        <div data-id="<%=screen%>_text" data-view="Text" style="background-color:#3299CC;"></div> 
+      </li>  
+      <li data-row="2" data-col="1" data-sizex="1" data-sizey="2" onclick="location.href='http://zabbix/dashboard.php';">
+        <div data-id="<%=screen%>_warn" data-view="Zabbix" data-title="warning" style="background-color:#96bf48;"></div> 
+      </li>
+      <li data-row="2" data-col="2" data-sizex="1" data-sizey="2" onclick="location.href='http://zabbix/dashboard.php';">
+        <div data-id="<%=screen%>_avrg" data-view="Zabbix" data-title="average" style="background-color:#96bf48;"></div>
+      </li>
+      <li data-row="4" data-col="1" data-sizex="1" data-sizey="2" onclick="location.href='http://zabbix/dashboard.php';">
+        <div data-id="<%=screen%>_high" data-view="Zabbix" data-title="high" style="background-color:#96bf48;"></div>
+      </li>
+      <li data-row="4" data-col="2" data-sizex="1" data-sizey="2" onclick="location.href='http://zabbix/dashboard.php';">
+        <div data-id="<%=screen%>_disa" data-view="Zabbix" data-title="disaster" style="background-color:#96bf48;"></div>
+      </li>
+      <li data-row="1" data-col="4" data-sizex="3" data-sizey="5">
+        <div data-id="<%=screen%>_list" data-view="ZabbixList" data-title="Last active triggers" style="background-color:#444;"></div>
+      </li>
+    </ul>
+  </div>
+<% end %>  
+
+
+
+

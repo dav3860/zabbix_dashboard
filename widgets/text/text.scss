@@ -1,0 +1,58 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #3299CC;
+
+$background-disa-color-1: #E82711;
+$background-disa-color-2: #9B2D23;
+$text-disa-color: #fff;
+
+@-webkit-keyframes status-disa-background {
+  0%   { background-color: $background-disa-color-1; }
+  50%  { background-color: $background-disa-color-2; }
+  100% { background-color: $background-disa-color-1; }
+}
+  
+@mixin animation($animation-name, $duration, $function, $animation-iteration-count:""){
+  -webkit-animation:  $animation-name $duration $function #{$animation-iteration-count};
+  -moz-animation:     $animation-name $duration $function #{$animation-iteration-count};
+  -ms-animation:      $animation-name $duration $function #{$animation-iteration-count};
+}
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-text styles
+// ----------------------------------------------------------------------------
+.widget-text {
+
+  background-color: $background-color;
+
+  .title {
+    font-size: 48px;
+    color: $title-color;
+  }
+
+  .more-info {
+    color: $moreinfo-color;
+  }
+
+  .updated-at {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &.large h3 {
+    font-size: 65px;
+  }
+}
+
+.widget.status-disa-blink {
+  color: $text-disa-color;
+  background-color: $background-disa-color-1;
+  @include animation(status-disa-background, 2s, ease, infinite);
+}
+
+.widget.status-ok {
+  background-color:#3299CC
+}

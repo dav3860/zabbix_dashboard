@@ -1,0 +1,175 @@
+$value-color:              #FFF;
+
+$background-color: #222;
+$text-color: #fff;
+
+$background-avrg-color-1: #A0522D;
+$background-avrg-color-2: #FFA07A;
+$text-avrg-color: #fff;
+
+$background-warn-color-1: #FFD117;
+$background-warn-color-2: #FF9618;
+$text-warn-color: #fff;
+
+$background-high-color-1: #CD5C5C;
+$background-high-color-2: #FF9999;
+$text-high-color: #fff;
+
+$background-disa-color-1: #E82711;
+$background-disa-color-2: #9B2D23;
+$text-disa-color: #fff;
+
+@-webkit-keyframes status-warn-background {
+  0%   { background-color: $background-warn-color-2; }
+  50%  { background-color: $background-warn-color-1; }
+  100% { background-color: $background-warn-color-2; }
+}
+@-webkit-keyframes status-warn-background-still {
+  0%   { background-color: $background-warn-color-2; }
+  50%  { background-color: $background-warn-color-2; }
+  100% { background-color: $background-warn-color-2; }
+}
+@-webkit-keyframes status-avrg-background {
+  0%   { background-color: $background-avrg-color-1; }
+  50%  { background-color: $background-avrg-color-2; }
+  100% { background-color: $background-avrg-color-1; }
+}
+@-webkit-keyframes status-avrg-background-still {
+  0%   { background-color: $background-avrg-color-1; }
+  50%  { background-color: $background-avrg-color-1; }
+  100% { background-color: $background-avrg-color-1; }
+}
+@-webkit-keyframes status-high-background {
+  0%   { background-color: $background-high-color-1; }
+  50%  { background-color: $background-high-color-2; }
+  100% { background-color: $background-high-color-1; }
+}
+@-webkit-keyframes status-high-background-still {
+  0%   { background-color: $background-high-color-1; }
+  50%  { background-color: $background-high-color-1; }
+  100% { background-color: $background-high-color-1; }
+}
+@-webkit-keyframes status-disa-background {
+  0%   { background-color: $background-disa-color-1; }
+  50%  { background-color: $background-disa-color-2; }
+  100% { background-color: $background-disa-color-1; }
+}
+@-webkit-keyframes status-disa-background-still {
+  0%   { background-color: $background-disa-color-1; }
+  50%  { background-color: $background-disa-color-1; }
+  100% { background-color: $background-disa-color-1; }
+}
+@mixin animation($animation-name, $duration, $function, $animation-iteration-count:""){
+  -webkit-animation:  $animation-name $duration $function #{$animation-iteration-count};
+  -moz-animation:     $animation-name $duration $function #{$animation-iteration-count};
+  -ms-animation:      $animation-name $duration $function #{$animation-iteration-count};
+}
+
+ 
+$title-color:       rgba(255, 255, 255, 1);
+$label-color:       rgba(255, 255, 255, 0.7);
+ 
+.widget.widget-zabbix-list{
+ 
+  background-color: $background-color;
+  padding: 0px;
+  vertical-align: top;
+ 
+  img.background {
+    width: 100% !important;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    opacity: 0.05;
+  }
+ 
+  .title {
+    color: $title-color;
+  }
+ 
+  ol, ul {
+    margin: 0px;
+    text-align: left;
+    color: $label-color;
+  }
+ 
+  ol {
+    list-style-position: inside;
+  }
+ 
+  li {
+    margin-bottom: 5px;
+  }
+ 
+  .list-nostyle {
+  }
+ 
+  .items{
+    list-style: none;
+ 
+    li {
+      margin-top: 5px;
+
+      &.avrg-blink {
+        background-color: $background-avrg-color-1;
+        @include animation(status-avrg-background, 2s, ease, infinite);
+      }
+ 
+      &.warn-blink {
+        background-color: $background-warn-color-1;
+        @include animation(status-warn-background, 2s, ease, infinite);
+      }
+ 
+      &.high-blink {
+        background-color: $background-high-color-1;
+        @include animation(status-high-background, 2s, ease, infinite);
+      }
+
+      &.disa-blink {
+        background-color: $background-disa-color-1;
+        @include animation(status-disa-background, 2s, ease, infinite);
+      }      
+ 
+      &.avrg {
+        background-color: $background-avrg-color-1;
+        @include animation(status-avrg-background-still, 2s, ease, infinite);
+      }
+ 
+      &.warn {
+        background-color: $background-warn-color-1;
+        @include animation(status-warn-background-still, 2s, ease, infinite);
+      }
+ 
+      &.high {
+        background-color: $background-high-color-1;
+        @include animation(status-high-background-still, 2s, ease, infinite);
+      }
+
+      &.disa {
+        background-color: $background-disa-color-1;
+        @include animation(status-disa-background-still, 2s, ease, infinite);
+      }
+ 
+      .label {
+        display: block;
+        color: $label-color;
+        font-size: 40px;
+        word-wrap: break-word;
+ 
+        &.host {
+          float: left;
+          text-align: left;
+          padding: 5px 0px 5px 10px;
+        }
+ 
+        &.trigger {
+          float: left;
+          text-align: left;
+          padding-top: 10px;
+          font-size: 34px;
+          padding: 11px 0px 5px 5px;
+        }
+      }
+    }
+  }
+}

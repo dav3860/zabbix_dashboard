@@ -1,0 +1,11 @@
+<h1 class="title" data-bind="title"></h1>
+ 
+<ul class="items list-nostyle">
+  <li class="item" data-foreach-item="items" data-bind-class="item.widget_class">
+    <a data-bind-href="item.link">
+    <span class="label host" data-bind="item.host"></span>
+    <span class="label trigger" data-bind="item.trigger | truncate 40"></span>
+    <div class="clearfix" />
+    </a>
+  </li>
+</ul>
