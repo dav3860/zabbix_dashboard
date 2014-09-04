@@ -3,12 +3,12 @@ require 'json'
 require 'active_support/core_ext/numeric/time'
 
 ########################## PARAMETERS ##############################
-SERVER = "http://zabbix"    # Zabbix server URL
-USER = "apiusr"             # Zabbix user with API query rights
-PASSWORD = "password"       # Password
-MINPRIORITY = 2             # Minimum priority level
-ANIMATE = 5.minutes         # New triggers animation delay
-QUERYDELAY = '30s'          # Zabbix API query delay  
+SERVER = "http://server/zabbix" # Zabbix server URL
+USER = "apiusr"                 # Zabbix user with API query rights
+PASSWORD = "password"           # Password
+MINPRIORITY = 2                 # Minimum priority level
+ANIMATE = 5.minutes             # New triggers animation delay
+QUERYDELAY = '30s'              # Zabbix API query delay  
 
 #########################################################
 # Zabbix groups to dashboard screens mapping :          #
