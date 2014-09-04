@@ -1,5 +1,5 @@
 # A Zabbix Dashboard
-This is a dashboard for Zabbix using [Dashing](http://shopify.github.io/dashing).
+This is a dashboard for Zabbix using [Dashing](http://shopify.github.io/dashing). It is based on the work of chojayr (https://gist.github.com/chojayr/7401426).
 
 It displays the last active triggers and a summary of all triggers.
 ![](https://github.com/dav3860/zabbix_dashboard/blob/master/zabbix_dashboard.jpg)
