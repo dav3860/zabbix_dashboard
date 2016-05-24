@@ -69,7 +69,7 @@ SCHEDULER.every QUERYDELAY, allow_overlapping: false do
         "monitored" => 1, 
         "withLastEventUnacknowledged" => 1, 
         "skipDependent" => 1, 
-        "expandData" => "host",
+        "selectHosts" => "1,
         "expandDescription" => 1,
         "sortfield" => "lastchange",
         "sortorder" => "DESC")    
@@ -100,7 +100,8 @@ SCHEDULER.every QUERYDELAY, allow_overlapping: false do
         last = j["lastchange"].to_i
         tgrid = j["triggerid"]
         tlink = SERVER + "/events.php?triggerid=" + tgrid + "&period=2592000"
-        hostnme = j["hostname"]
+        hostid = j["hosts"][0]["hostid"]
+        hostnme = serv.run {Zabby::Host.get("hostids" => hostid)}[0]["name"]          
         hostnme = hostnme.gsub(/\..*$/, '') # strip domain name if necessary
         descr = j["description"]
         triggers[prio] << hostnme + " : " + descr
