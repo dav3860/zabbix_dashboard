@@ -69,7 +69,7 @@ SCHEDULER.every QUERYDELAY, allow_overlapping: false do
         "monitored" => 1, 
         "withLastEventUnacknowledged" => 1, 
         "skipDependent" => 1, 
-        "selectHosts" => "1,
+        "selectHosts" => 1,
         "expandDescription" => 1,
         "sortfield" => "lastchange",
         "sortorder" => "DESC")    
