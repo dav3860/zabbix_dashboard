@@ -56,7 +56,7 @@ SCHEDULER.every QUERYDELAY, allow_overlapping: false do
     end
     SCREENS.each do |screen, groups|
       # Get the group IDs
-      grps = serv.run {Zabby::Hostgroup.get("filter" =>{"name" => groups},"preservekeys" => 0)}
+      grps = serv.run {Zabby::Hostgroup.get("filter" =>{"name" => groups},"preservekeys" => true)}
       groupids = grps != [] ? grps.keys() : []
 
       # Query Zabbix for current problem triggers
